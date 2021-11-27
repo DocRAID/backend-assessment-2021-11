@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rentalCar</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      
+    }
+    /* 화살 애니메 */
+    @keyframes updown { 
+        0% {margin-top: 0px;}
+	      50% {margin-top: 7px;}
+        100% {margin-top: 0px;}
+    }
+    .material-icons {
+      font-size: 25px;
+      color: #445dd3;
+    }
+    #map {
+      margin-top: 90px;
+      position: absolute;
+      height: 90%;
+      width: 80%;
+      border-radius: 30px;
+    }
+    .container {
+      position: absolute;
+      height: 99.73%;
+      width: 20%;
+      right: 0;
+      background-color: #fff;
+    }
+    #company-Name {
+      font-size: 900;
+      padding: 20px;
+      text-align: center;
+    }
+    .inner {
+      padding-left: 30px;
+      margin-bottom: 20px;
+    }
+    .inner p {
+      font-size: 900;
+      padding: 10px;
+    }
+    .scroll {
+        overflow: scroll;
+    }
+    .animate{
+        position:absolute;
+        animation: updown 2s infinite;
+    }
+    .logo{
+      position: absolute;
+    }
+    h2{
+      font-size: 20px;
+    }
+
+    .card {
+      width: 100%;
+      background-color: #eee;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      margin-bottom: 30px;
+      border-radius: 20px;
+    }
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: #aaaadd;
+    }
+    /* 정보를 접었다 필수 있게 한다. */
+    #onoff{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    //필요해서 선언했음. 딜레이 있어야 하드라 ㅎㅎ 
+    function goto(x,y){
+      map.setLevel(2);setTimeout(function() {panTo(x,y);}, 50);
+      onoffjs() //이건 리스트 출력하게
+    }
+    function onoffjs(){
+      if(document.getElementById("onoff").style.display=="none"){
+        document.getElementById("onoff").style.display="block"
+      }
+      else{
+        document.getElementById("onoff").style.display="none"
+      }
+    }
+  </script>
+  <div id="head">
+    <img class="logo" src="/front/img/Rant. (1).png" width="270px" alt="" >
+  </div>
+  <div id="map"></div>
+  <section class="container scroll">
+    <!-- panTo > 좌표를 바꿀수 이씀 ㅇㅇ -->
+    <div class="card" onclick="goto(36.3030565, 128.5848745)">
+      <h1 id="company-Name" name="">업체명</h1>
+        <div id="onoff">
+
+          <div class="inner">
+          <h2><div class="material-icons">schedule</div>  영업시간</h2>
+          <p name="">평일 영업시간:</p>
+          <p name="">주말 영업시간:</p>
+          </div>
+          <div class="inner">
+          <h2><div class="material-icons">directions_car</div> 차 보유 현황</h2>
+          <p name="">총 보유수:</p>
+          <p name="">승용차:</p>
+          <p name="">??차:</p>
+          </div>
+          <div class="inner">
+          <h2><div class="material-icons">perm_identity</div>  대표자 정보</h2>
+          <p name="">대표자 명:</p>
+          <p name="">전화 번호:</p>
+          <p name="">사업지 주소:</p>
+          </div>
+        </div>
+        
+    </div>
+      
+    <h2> <div class="material-icons animate">expand_more</div> &nbsp;&nbsp;&nbsp;&nbsp;업체목록 더보기</h2>
+    <!-- <h2 onclick="panTo(36.3030565, 128.5848745)"> card </h2> -->
+      <!-- 이거부턴 반복 돌릴꺼 name 으로 갚을 찾은후. 자바의 replace 하면됨 -->
+      <div class="card" onclick="goto(36.3030565, 128.5848745)">
+        <h1 id="company-Name" name="">업체명</h1>
+          <div id="onoff">
+  
+            <div class="inner">
+            <h2><div class="material-icons">schedule</div>  영업시간</h2>
+            <p name="">평일 영업시간:</p>
+            <p name="">주말 영업시간:</p>
+            </div>
+            <div class="inner">
+            <h2><div class="material-icons">directions_car</div> 차 보유 현황</h2>
+            <p name="">총 보유수:</p>
+            <p name="">승용차:</p>
+            <p name="">??차:</p>
+            </div>
+            <div class="inner">
+            <h2><div class="material-icons">perm_identity</div>  대표자 정보</h2>
+            <p name="">대표자 명:</p>
+            <p name="">전화 번호:</p>
+            <p name="">사업지 주소:</p>
+            </div>
+          </div>
+          
+      </div>
+
+      
+       
+  </section>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e77f2daf4503f825c5f8fcbc756d2145"></script>
+  <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f4c65f3468d8158ef7e85ddd97a8cdc"></script> -->
+  <script>
+  //맵 가져오기
+
+  function panTo(x,y) {
+    // 이동할 위도 경도 위치를 생성합니다 
+    var moveLatLon = new kakao.maps.LatLng(x,y);
+    
+    // 지도 중심을 부드럽게 이동시킵니다
+    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+    map.panTo(moveLatLon);            
+}        
+
+    var container = document.getElementById('map'),
+    options = {
+      //중심좌표
+      center: new kakao.maps.LatLng(36.3030465, 128.5848745),
+      //확대 레벨
+      level: 3
+    };
+ //맵 불러오기
+  var map = new kakao.maps.Map(container, options);
+  
+  // 지도에 표시된 마커 객체를 가지고 있을 배열입니다
+  var markers = [];
+
+  // 마커 생성하는 좌표
+  addMarker(new kakao.maps.LatLng(36.3030465, 128.5848745)); // 좌표 받으면 마크 찍힘***
+
+  // 마커를 생성하고 지도위에 표시하는 함수입니다
+  function addMarker(position) {
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+      position: position
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+      
+    // 생성된 마커를 배열에 추가합니다
+    markers.push(marker);
+  }
+  </script>
+</body>
+</html>
+
+<!-- 36.3030465, 128.5848745 -->
+<!-- 학교 좌표 -->
