@@ -59,6 +59,9 @@
     }
     .logo{
       position: absolute;
+      width: 270px;
+      height: 10%;
+      /* 로고 높이 변경 */
     }
     h2{
       font-size: 20px;
@@ -99,31 +102,34 @@
     }
   </script>
   <div id="head">
-    <img class="logo" src="/front/img/Rant. (1).png" width="270px" alt="" >
+    <img class="logo" src="../img/Rant.png" alt="logo" >
   </div>
   <div id="map"></div>
   <section class="container scroll">
     <!-- panTo > 좌표를 바꿀수 이씀 ㅇㅇ -->
     <div class="card" onclick="goto(36.3030565, 128.5848745)">
-      <h1 id="company-Name" name="">업체명</h1>
+      <h1 id="company-Name" name="업체">업체명</h1>
         <div id="onoff">
-
+          
           <div class="inner">
           <h2><div class="material-icons">schedule</div>  영업시간</h2>
-          <p name="">평일 영업시간:</p>
-          <p name="">주말 영업시간:</p>
+          <p name="weekday">평일 영업시간:</p>
+          <p name="weekend">주말 영업시간:</p>
           </div>
           <div class="inner">
           <h2><div class="material-icons">directions_car</div> 차 보유 현황</h2>
-          <p name="">총 보유수:</p>
-          <p name="">승용차:</p>
-          <p name="">??차:</p>
+          <p name="total">총 보유수:</p>
+          <p name="passenger-car">승용차:</p>
+          <p name="van">승합차:</p>
+          <p name="electric-passenger-car">전기 승용차:</p>
+          <p name="electric-van">전기 승합차:</p> 
+          <!-- 차 종류 늘림 -->
           </div>
           <div class="inner">
           <h2><div class="material-icons">perm_identity</div>  대표자 정보</h2>
-          <p name="">대표자 명:</p>
-          <p name="">전화 번호:</p>
-          <p name="">사업지 주소:</p>
+          <p name="representative-name">대표자 명:</p>
+          <p name="phone-number">전화 번호:</p>
+          <p name="address">사업지 주소:</p>
           </div>
         </div>
         
@@ -133,31 +139,30 @@
     <!-- <h2 onclick="panTo(36.3030565, 128.5848745)"> card </h2> -->
       <!-- 이거부턴 반복 돌릴꺼 name 으로 갚을 찾은후. 자바의 replace 하면됨 -->
       <div class="card" onclick="goto(36.3030565, 128.5848745)">
-        <h1 id="company-Name" name="">업체명</h1>
-          <div id="onoff">
-  
-            <div class="inner">
-            <h2><div class="material-icons">schedule</div>  영업시간</h2>
-            <p name="">평일 영업시간:</p>
-            <p name="">주말 영업시간:</p>
-            </div>
-            <div class="inner">
-            <h2><div class="material-icons">directions_car</div> 차 보유 현황</h2>
-            <p name="">총 보유수:</p>
-            <p name="">승용차:</p>
-            <p name="">??차:</p>
-            </div>
-            <div class="inner">
-            <h2><div class="material-icons">perm_identity</div>  대표자 정보</h2>
-            <p name="">대표자 명:</p>
-            <p name="">전화 번호:</p>
-            <p name="">사업지 주소:</p>
-            </div>
-          </div>
-          
-      </div>
+        <h1 id="company-Name" name="업체">업체명</h1>
+        <div id="onoff">
 
-      
+          <div class="inner">
+          <h2><div class="material-icons">schedule</div>  영업시간</h2>
+          <p name="weekday">평일 영업시간:</p>
+          <p name="weekend">주말 영업시간:</p>
+          </div>
+          <div class="inner">
+          <h2><div class="material-icons">directions_car</div> 차 보유 현황</h2>
+          <p name="total">총 보유수:</p>
+          <p name="passenger-car">승용차:</p>
+          <p name="van">승합차:</p>
+          <p name="electric-passenger-car">전기 승용차:</p>
+          <p name="electric-van">전기 승합차:</p>
+          </div>
+          <div class="inner">
+          <h2><div class="material-icons">perm_identity</div>  대표자 정보</h2>
+          <p name="representative-name">대표자 명:</p>
+          <p name="phone-number">전화 번호:</p>
+          <p name="address">사업지 주소:</p>
+          </div>
+        </div>
+      </div>
        
   </section>
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e77f2daf4503f825c5f8fcbc756d2145"></script>
